@@ -1,0 +1,17 @@
+<!-- <form>
+    <app-login-form></app-login-form>
+</form> -->
+<form>
+    <h2>{{title}}</h2>
+    <form class="loginform" [formGroup]="loginform">
+        <input type="text" placeholder="username" formControlName="username"><br>
+        <span *ngif="username?.invalid && username?.touched">username is required!</span>
+        <input type="email" placeholder="Enter email" formControlName="email"><br>
+        <span *ngIf="email?.invalid && email?.touched">email is required !!</span>
+        <input type="text" placeholder="0000000000" formControlName="phone"><br>
+        <span *ngIf="phone?.invalid && phone?.touched">phone number is required !!</span>
+        <input type="password" placeholder="Enter Password" formControlName="password"><br>
+        <span *ngif="password?.invalid && password?.touched">password is required!</span>
+        <button>Login</button>
+    </form>
+</form>
