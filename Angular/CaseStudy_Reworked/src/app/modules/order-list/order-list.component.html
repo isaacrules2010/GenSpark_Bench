@@ -1,0 +1,23 @@
+<div class='container-fluid text-center'>
+    <h1 class="'text-center">Order List</h1>
+    <table class="table table-striped table-dark table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Order #</th>
+                <th scope="col">Total Price</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody className="thead">
+            <tr *ngFor="let order of orders">
+                <th>{{ order.id }}</th>
+                <th>{{ order.total }}</th>
+                <th>
+                    <button>view</button>
+                    <button>cancel</button>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="createOrder()">New Order</button>
+</div>
