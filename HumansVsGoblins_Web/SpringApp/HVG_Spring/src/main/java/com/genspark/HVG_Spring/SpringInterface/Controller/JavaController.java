@@ -1,30 +1,41 @@
 package com.genspark.HVG_Spring.SpringInterface.Controller;
 
-import com.genspark.HVG_Spring.SpringInterface.Entity.GameSave;
-import com.genspark.HVG_Spring.SpringInterface.Service.SaveService;
+import com.genspark.HVG_Spring.SpringInterface.Entity.Score;
+import com.genspark.HVG_Spring.SpringInterface.Service.ScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:4200"})
 @RestController
 public class JavaController {
-    @Autowired
-    SaveService saves;
+   @Autowired
+    private ScoreService scores;
 
-    @GetMapping()
+   //just something for the empty request
+   @GetMapping("/")
     public String home(){
-        return "<h1>Hello World!</h1>";
-    }
+       return "<HTML><h1>Scores</h1></HTML>";
+   }
 
-    @GetMapping("/save")
-    public GameSave getSave(@RequestBody int id){
-        return this.saves.getSaveById(id);
-    }
+   @GetMapping("/scores")
+    public List<Score> getScores(){
+       return this.scores.getAllScores();
+   }
 
-    @PostMapping("/save")
-    public String addSave(@RequestBody GameSave save){
-        return this.saves.saveGame(save);
-    }
+   @GetMapping("/scores/top")
+   public List<Score> getTopScores(){
+       return this.scores.getTopScores();
+   }
+
+   @PostMapping("/scores")
+    public Score addScore(@RequestBody Score score) {
+       return this.scores.addScore(score);
+   }
+
+   @PutMapping("/scores")
+    public Score updateScore(@RequestBody Score score){
+       return this.scores.updateScore(score);
+   }
 }
