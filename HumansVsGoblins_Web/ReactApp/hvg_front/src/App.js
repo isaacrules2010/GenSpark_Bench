@@ -2,8 +2,9 @@ import './App.css';
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Home from './Pages/Home';
-import Test from './Components/JSTest';
+//import Test from './Components/JSTest';
 import ScoreDisplay from './Components/Scores';
+import Game from './Components/Game';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Router>
         <NavBar/>
         <Routes>
-          <Route path='/' Component={Home}/>
+          <Route path='/' Component={Home} />
+          <Route path='HvM' Component={Game} />
           <Route path='scores' Component={ScoreDisplay} />
         </Routes>
       </Router>

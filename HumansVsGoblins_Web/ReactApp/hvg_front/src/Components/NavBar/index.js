@@ -25,9 +25,9 @@ const NavBar = () => {
                 Scores
             </NavLink>
         </NavMenu>
-        <NavBtn>
+        {/* <NavBtn>
             <NavBtnLink to = '#'> Load Game </NavBtnLink>
-        </NavBtn>
+        </NavBtn> */}
     </Nav>
     </>
   )

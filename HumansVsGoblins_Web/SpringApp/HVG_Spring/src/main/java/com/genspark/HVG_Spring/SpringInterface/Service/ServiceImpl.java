@@ -25,6 +25,9 @@ public class ServiceImpl implements ScoreService{
 
     @Override
     public Score addScore(Score score) {
+        if(score.getName() == ""){
+            score.setName("anonymous");
+        }
         return this.scores.save(score);
     }
 

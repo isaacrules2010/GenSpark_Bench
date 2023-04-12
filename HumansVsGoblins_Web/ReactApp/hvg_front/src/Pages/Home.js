@@ -34,7 +34,7 @@ const Home = () => {
         But for now, I have score input for full-stack testing purposes
       </div>
       <form onSubmit={(e) => scoreSubmit(e)}>
-        <input type='text' placeholder='Name' onChange={(e)=>{nameChangeHandler(e)}}required/>
+        <input type='text' placeholder='Name' defaultValue='' onChange={(e)=>{nameChangeHandler(e)}}/>
         <input type='number' placeholder='Score' onChange={(e)=>{scoreChangeHandler(e)}} required/>
         <input type='submit' value='Add Score to List'/>
       </form>

@@ -38,4 +38,9 @@ public class JavaController {
     public Score updateScore(@RequestBody Score score){
        return this.scores.updateScore(score);
    }
+
+   @DeleteMapping("/scores/{id}")
+    public String deleteScoreById(@PathVariable String id){
+       return this.scores.deleteScoreById(Integer.parseInt(id));
+   }
 }
